@@ -17,6 +17,8 @@ from xgboost import XGBClassifier
 from mlxtend.frequent_patterns import apriori
 from mlxtend.frequent_patterns import association_rules
 
+from causalnex.structure.notears import from_pandas
+from causalnex.plots import plot_structure
 
 class MLQRMine(object):
 
@@ -240,6 +242,11 @@ class MLQRMine(object):
         frequent_itemsets = apriori(self.encode_categorical(), min_support=0.07, use_colnames=True)
         rules = association_rules(frequent_itemsets, metric="lift", min_threshold=1)
         return rules
+
+    def get_causal(self):
+        sm = from_pandas(self._dataset)
+        sm.remove_edges_below_threshold(0.8)
+        return plot_structure(sm.get_largest_subgraph())
 
     def get_pca(self, n=3):
         # https://plot.ly/~notebook_demo/264/about-the-author-some-of-sebastian-rasc/#/

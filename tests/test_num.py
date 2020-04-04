@@ -45,6 +45,11 @@ def test_pca(ml_fixture, capsys):
     captured = capsys.readouterr()
     assert 'Covariance matrix' in captured.out
 
+def test_causal(ml_fixture, capsys):
+    ml_fixture.prepare_data()
+    print(ml_fixture.get_causal())
+    captured = capsys.readouterr()
+    assert 'digraph' in captured.out
 # def test_association(ml_fixture, capsys):
 #     ml_fixture.prepare_data()
 #     print(ml_fixture.get_apriori())
