@@ -34,7 +34,32 @@ def test_generate_topics(corpus_fixture, capsys, q):
     captured = capsys.readouterr()
     assert 'theory' in captured.out
 
+def test_generate_categories(corpus_fixture, capsys, q):
+    from src.qrmine import Content
+    import textacy
+    num = 10
+    all_interviews = Content(corpus_fixture.content)
+    doc = textacy.make_spacy_doc(all_interviews.doc)
+    q.print_categories(doc, num)
+    captured = capsys.readouterr()
+    assert 'Categories with count' in captured.out
 
+def test_generate_summary(corpus_fixture, capsys, q):
+    from src.qrmine import Content
+    all_interviews = Content(corpus_fixture.content)
+    print(" ".join(all_interviews.generate_summary(2)))
+    captured = capsys.readouterr()
+    assert 'Classical Grounded Theory' in captured.out
 
-
+def test_generate_sentiment(corpus_fixture, capsys, q):
+    from src.qrmine import Content
+    from src.qrmine import Sentiment
+    import textacy
+    s = Sentiment()
+    all_interviews = Content(corpus_fixture.content)
+    doc = textacy.make_spacy_doc(all_interviews.doc)
+    s.sentiment_analyzer_scores(doc.text)
+    print(s.sentiment())
+    captured = capsys.readouterr()
+    assert 'neu' in captured.out
 
