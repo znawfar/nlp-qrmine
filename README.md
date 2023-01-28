@@ -173,3 +173,4 @@ QRMine is inspired by [this work](https://github.com/lknelson/computational-grou
 ## Demo
 
 [![QRMine](https://github.com/dermatologist/nlp-qrmine/blob/develop/notes/qrmine.gif)](https://github.com/dermatologist/nlp-qrmine/blob/develop/notes/qrmine.gif)
+
