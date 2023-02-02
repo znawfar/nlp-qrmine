@@ -1,5 +1,7 @@
 # QRMine
+
 */ˈkärmīn/*
+
 
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)[![PyPI download total](https://img.shields.io/pypi/dm/qrmine.svg)](https://pypi.python.org/pypi/qrmine/)
 ![Libraries.io SourceRank](https://img.shields.io/librariesio/sourcerank/pypi/qrmine)
